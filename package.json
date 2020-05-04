@@ -8,11 +8,15 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@zxing/library": "^0.16.3",
+    "@zxing/library": "^0.15.2",
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
+    "echarts": "^4.7.0",
     "element-ui": "^2.13.1",
-    "vue": "^2.6.11"
+    "http-proxy-middleware": "^1.0.3",
+    "vue": "^2.6.11",
+    "vue-router": "^3.1.6",
+    "webrtc": "^1.14.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.3.0",
