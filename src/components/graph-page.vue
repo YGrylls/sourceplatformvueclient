@@ -4,7 +4,8 @@
 </template>
 
 <script>
-    import echarts from 'echarts';
+    let echarts = require('echarts/lib/echarts');
+    require('echarts/lib/chart/graph');
     export default {
         name: "GraphPage",
         data(){
