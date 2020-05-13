@@ -1,24 +1,27 @@
 <template>
-    <div>
-
-
+    <div >
         <div id="centre">
-            <p style="font-size: 2em; font-weight: bold; color: deepskyblue">
-                Products
-                Traceability
-            </p>
-            <el-input v-model="globalId" placeholder="Enter Product ID"
-            style="width: 60%;"></el-input>
-            <el-button @click="submitSearch(globalId)" type="primary" style="width: 20%; margin-left: 4px; min-width: 6em ">Search</el-button>
-            <el-button :disabled="this.scanDisable" @click="scanQR" type="primary" icon="el-icon-camera" style="margin: 0.5em; width: 80%; font-size: 2em"></el-button>
+            <div >
+                <p style="font-size: 2em; font-weight: bold; color: deepskyblue;text-shadow: 1px 1px white">
+                    Products
+                    Traceability
+                </p>
+                <el-input v-model="globalId" placeholder="Enter Product ID"
+                style="width: 60%;"></el-input>
+                <el-button @click="submitSearch(globalId)" type="primary" style="width: 20%; margin-left: 4px; min-width: 6em ">Search</el-button>
+                <el-button :disabled="this.scanDisable" @click="scanQR" type="primary" icon="el-icon-camera" style="margin: 0.5em; width: 80%; font-size: 2em"></el-button>
+
+            </div>
+            <video ref="video"
+                   id="video"
+                   width="200"
+                   height="200"
+                   style="border: 1px solid deepskyblue; margin-left: auto; margin-right: auto">
+            </video>
+        </div>
+        <div id="bg">
 
         </div>
-        <video ref="video"
-               id="video"
-               width="200"
-               height="200"
-               style="border: 1px solid deepskyblue; margin-left: auto; margin-right: auto">
-        </video>
     </div>
 </template>
 
@@ -85,13 +88,34 @@
 </script>
 
 <style scoped>
+    #bg{
+        width: 100vw;
+        height: 100vh;
+        position:absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom:0;
+        z-index: -100;
+        background: url('../assets/bg.jpg') center center no-repeat;
+
+    }
     #centre{
         text-align: center;
         width: 60%;
+        margin-top: 6em;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 6em;
-        max-width: 600px;
-        height: auto;
+        max-width: 640px;
+        min-width: 300px;
+        background-color: rgba(255,255,255,.15);
+        border-radius: 10px;
+        padding-top: 2em;
+        padding-bottom: 2em;
+        padding-left:1em;
+        padding-right:1em;
+        box-shadow: 2px 2px 10px 1px darkslateblue;
+        backdrop-filter: blur(10px);
     }
+
 </style>

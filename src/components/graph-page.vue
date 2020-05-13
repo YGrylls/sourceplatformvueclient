@@ -1,6 +1,19 @@
 <template>
-    <div id="graphContainer" style="width: 100vw; height: 100vh">
+    <div style="width: 100vw;height: 100vh">
+        <p style="position: absolute; top: 1em;left: 1em; z-index: -10; text-align: left;
+            font-size: 2em;font-weight: bold;color: grey; margin: 0; padding: 0;">
+            Product Traceability
+            <br/>
+            Click/Tap Nodes to Expand
+        </p>
+        <div id="graphContainer" style="width: 100vw; height: 100vh;margin: 0;">
+        </div>
+        <div id="bg">
+
+        </div>
+
     </div>
+
 </template>
 
 <script>
@@ -227,5 +240,15 @@
 </script>
 
 <style scoped>
-
+    #bg{
+        width: 100vw;
+        height: 100vh;
+        position:absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom:0;
+        z-index: -100;
+        background: url('../assets/graphBG.jpg') center center no-repeat;
+    }
 </style>
