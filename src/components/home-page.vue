@@ -2,7 +2,7 @@
     <div >
         <div id="centre">
             <div >
-                <p style="font-size: 2em; font-weight: bold; color: deepskyblue;text-shadow: 1px 1px white">
+                <p style="font-size: 2em; font-weight: bold; color: lightskyblue;">
                     Products
                     Traceability
                 </p>
@@ -16,7 +16,7 @@
                    id="video"
                    width="200"
                    height="200"
-                   style="border: 1px solid deepskyblue; margin-left: auto; margin-right: auto">
+                   style="border: 1px solid lightskyblue; margin-left: auto; margin-right: auto">
             </video>
         </div>
         <div id="bg">
@@ -108,13 +108,13 @@
         margin-right: auto;
         max-width: 640px;
         min-width: 300px;
-        background-color: rgba(255,255,255,.15);
+        background-color: rgba(255,255,255,.1);
         border-radius: 10px;
         padding-top: 2em;
         padding-bottom: 2em;
         padding-left:1em;
         padding-right:1em;
-        box-shadow: 2px 2px 10px 1px darkslateblue;
+        box-shadow: 2px 2px 10px 1px lightskyblue;
         backdrop-filter: blur(10px);
     }
 

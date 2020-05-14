@@ -18,6 +18,11 @@ export default new Router({
             path:'/graph/:id',
             name:'graph',
             component:()=>import('./components/graph-page.vue')
+        },
+        {
+            path:'/upload',
+            name:'upload',
+            component:()=>import('./components/process-uploader.vue')
         }
     ]
 })

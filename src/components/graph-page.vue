@@ -2,7 +2,7 @@
     <div style="width: 100vw;height: 100vh">
         <p style="position: absolute; top: 1em;left: 1em; z-index: -10; text-align: left;
             font-size: 2em;font-weight: bold;color: grey; margin: 0; padding: 0;">
-            Product Traceability
+            Products Traceability
             <br/>
             Click/Tap Nodes to Expand
         </p>
