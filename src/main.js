@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import {Button, Input, Message, Icon, Upload, ButtonGroup} from 'element-ui';
+import {Button, Input, Message, Icon, Upload, ButtonGroup, Notification} from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import axios from 'axios'
 import router from './router'
@@ -16,6 +16,8 @@ Vue.use(Icon);
 Vue.use(Upload);
 Vue.use(ButtonGroup);
 Vue.prototype.$message=Message;
+Vue.prototype.$notify=Notification;
+
 
 const {createProxyMiddleware} = require('http-proxy-middleware');
 Vue.use(

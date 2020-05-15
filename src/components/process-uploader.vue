@@ -13,9 +13,11 @@
             <el-upload
                     class="upload"
                     accept=".json"
-                    limit="1"
                     drag
                     :action="uploadTarget"
+                    :show-file-list=false
+                    :on-success="uploadSuc"
+                    :on-error="uploadErr"
                     >
                 <i class="el-icon-upload"></i>
                 <div class="el-upload__text" style="font-weight: bold; color: lightskyblue;">{{uploadTip}}</div>
@@ -45,12 +47,32 @@
                 completeDisable:false,
 
                 uploadTip:"START PROCESS",
-                targetURL:"http://118.178.181.104:8080",
-                uploadTarget: "http://118.178.181.104:8080/start"
+                targetURL:"http://localhost:8080",
+                uploadTarget: "http://localhost:8080/start"
 
             }
         },
         methods:{
+            uploadSuc(resp){
+                console.log(resp);
+                if (resp.errCode!=null){
+                    this.uploadErr(resp.errCode);
+                } else{
+                    this.$notify({
+                        duration:0,
+                        title:'Success',
+                        message: 'Fail List: '+ resp.data
+                    })
+                }
+
+            },
+            uploadErr(err){
+                this.$notify({
+                    duration:0,
+                    title:'Error',
+                    message: err
+                })
+            },
             clickLink(){
                 this.linkType="success";
                 this.linkDisable=true;
