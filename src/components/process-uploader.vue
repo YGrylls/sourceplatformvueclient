@@ -1,39 +1,38 @@
 <template>
-    <div >
-        <div id="centre">
-            <div >
-                <p style="font-size: 2em; font-weight: bold; color: lightskyblue;">
-                    Process
-                    Uploader
-                </p>
-                <p style="font-size: .5em; font-weight: bold; color: lightskyblue;">
-                    JSON files under 10kb
-                </p>
+    <div style="min-width: 960px">
+        <el-row class="row">
+            <div style="width:100%;padding: 1em 0 1em 0; font-size: 2em; background-color: lightskyblue; color: white;">
+                Product Traceability Platform Interface
             </div>
-            <el-upload
-                    class="upload"
-                    accept=".json"
-                    drag
-                    :action="uploadTarget"
-                    :show-file-list=false
-                    :on-success="uploadSuc"
-                    :on-error="uploadErr"
-                    >
-                <i class="el-icon-upload"></i>
-                <div class="el-upload__text" style="font-weight: bold; color: lightskyblue;">{{uploadTip}}</div>
-            </el-upload>
-            <el-button-group>
-                <el-button @click="clickLink" class="gpBtn" :type="linkType" :disabled="linkDisable" icon="el-icon-share">LINK</el-button>
-                <el-button @click="clickStart" class="gpBtn" :type="startType" :disabled="startDisable" icon="el-icon-plus">START</el-button>
-                <el-button @click="clickComplete" class="gpBtn" :type="completeType" :disabled="completeDisable" icon="el-icon-check">COMPLETE</el-button>
-            </el-button-group>
-        </div>
-        <div id="bg">
-        </div>
+        </el-row>
+        <el-row class="row">
+            <el-col :span="4" style="height: 100%">
+                <el-menu style="margin: 0; text-align: left; font-weight: bold; border: 0"
+                    default-active="upload"
+                    active-text-color="lightskyblue"
+                    text-color="grey"
+                    :router="true">
+                    <el-menu-item index="upload">
+                        <i class="el-icon-upload2"></i>
+                        <span slot="title">Process Upload</span>
+                    </el-menu-item>
+                    <el-menu-item index="display">
+                        <i class="el-icon-finished"></i>
+                        <span slot="title">Display Name</span>
+                    </el-menu-item>
+
+                </el-menu>
+            </el-col>
+            <el-col :span="18" style="border-left: solid 1px #e6e6e6; padding:1em">
+                <router-view></router-view>
+            </el-col>
+        </el-row>
+
     </div>
 </template>
 
 <script>
+    import {targetURL} from "../url";
     export default {
         name: "ProcessUploader",
         data(){
@@ -47,14 +46,19 @@
                 completeDisable:false,
 
                 uploadTip:"START PROCESS",
-                targetURL:"http://localhost:8080",
-                uploadTarget: "http://localhost:8080/start"
+                targetURL:targetURL,
+                uploadTarget: targetURL + "/start",
 
+                loading:false,
             }
         },
         methods:{
+            uploadLoading(){
+                this.loading=true;
+            },
             uploadSuc(resp){
                 console.log(resp);
+                this.loading=false;
                 if (resp.errCode!=null){
                     this.uploadErr(resp.errCode);
                 } else{
@@ -67,6 +71,7 @@
 
             },
             uploadErr(err){
+                this.loading=false;
                 this.$notify({
                     duration:0,
                     title:'Error',
@@ -108,44 +113,9 @@
 </script>
 
 <style scoped>
-    #bg{
-        width: 100vw;
-        height: 100vh;
-        position:absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom:0;
-        z-index: -100;
-        background: url('../assets/bg.jpg') center center no-repeat;
 
-    }
-    .upload{
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 1em;
-    }
-    .gpBtn{
-        width: 120px;
-        text-align: center;
-        font-size: .5em;
-    }
-    #centre{
-        text-align: center;
-        width: 60%;
-        margin-top: 6em;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 720px;
-        min-width: 400px;
-        background-color: rgba(255,255,255,.2);
-        border-radius: 10px;
-        padding-top: 2em;
-        padding-bottom: 2em;
-        padding-left:1em;
-        padding-right:1em;
-        box-shadow: 2px 2px 10px 1px lightskyblue;
-        backdrop-filter: blur(10px);
-    }
 
+    .row{
+        margin:0
+    }
 </style>

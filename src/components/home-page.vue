@@ -9,7 +9,7 @@
                 <el-input v-model="globalId" placeholder="Enter Product ID"
                 style="width: 60%;"></el-input>
                 <el-button @click="submitSearch(globalId)" type="primary" style="width: 20%; margin-left: 4px; min-width: 6em ">Search</el-button>
-                <el-button :disabled="this.scanDisable" @click="scanQR" type="primary" icon="el-icon-camera" style="margin: 0.5em; width: 80%; font-size: 2em"></el-button>
+                <el-button :disabled="this.scanDisable" @click="scanQR" type="primary" icon="el-icon-camera" style="margin: 0.5em; width: 80%; font-size: 1.2em">SCAN QRCODE</el-button>
 
             </div>
             <video ref="video"

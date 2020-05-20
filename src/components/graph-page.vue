@@ -157,6 +157,15 @@
                 };
                 this.links.push(link);
             },
+            notExistNotify(target){
+                const that = this;
+                this.$alert(target + " Not Exist or Transaction Error", "Error", {
+                    confirmButtonText:"OK",
+                    callback: () => {
+                        that.$router.push("/home")
+                    }
+                });
+            },
             queryProcess(id){
                 let req = {
                     key:id
@@ -165,10 +174,7 @@
                 this.$http.post('/query',req).then((resp)=>{
 
                     if(resp.data.errCode!=null){
-                        that.$message({
-                            message:"Query "+resp.data.errCode,
-                            type:"error"
-                        });
+                        that.notExistNotify(id);
                         return;
                     }
                     that.$message({
@@ -179,11 +185,8 @@
                     that.addProcess(proc,0,0);
                     //update charts
                     this.updateCharts();
-                }).catch((err)=>{
-                    that.$message({
-                        message:"Query "+err,
-                        type:"error"
-                    });
+                }).catch(()=>{
+                    that.notExistNotify(id);
                 });
             },
             prevProcess(id,x,y){

@@ -10,6 +10,10 @@ export default new Router({
             redirect:'/home'
         },
         {
+            path:'/interface',
+            redirect: '/interface/upload'
+        },
+        {
             path:'/home',
             name:'home',
             component:()=>import('./components/home-page.vue')
@@ -20,9 +24,15 @@ export default new Router({
             component:()=>import('./components/graph-page.vue')
         },
         {
-            path:'/upload',
-            name:'upload',
-            component:()=>import('./components/process-uploader.vue')
+            path:'/interface',
+            name:'interface',
+            component:()=>import('./components/process-uploader.vue'),
+            children:[
+                {
+                    path:'upload',
+                    component:()=>import('./components/uploader.vue')
+                }
+            ]
         }
     ]
 })
