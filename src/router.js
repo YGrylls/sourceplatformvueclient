@@ -31,6 +31,10 @@ export default new Router({
                 {
                     path:'upload',
                     component:()=>import('./components/uploader.vue')
+                },
+                {
+                    path:'display',
+                    component:()=>import('./components/display.vue')
                 }
             ]
         }

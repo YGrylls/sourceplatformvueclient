@@ -8,7 +8,6 @@
         <el-row class="row">
             <el-col :span="4" style="height: 100%">
                 <el-menu style="margin: 0; text-align: left; font-weight: bold; border: 0"
-                    default-active="upload"
                     active-text-color="lightskyblue"
                     text-color="grey"
                     :router="true">
